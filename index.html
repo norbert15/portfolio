@@ -4,6 +4,799 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Balogh Norbert - Angular fejlesztő</title>
+
+    <link rel="stylesheet" href="./assets/css/utilities.css" />
+    <link rel="stylesheet" href="./assets/css/component.css" />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <link rel="stylesheet" href="./assets/css/media.css" />
   </head>
-  <body></body>
+  <body>
+    <header>
+      <nav>
+        <div id="hamburgerMenu">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="currentColor"
+            class="bi bi-list"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"
+            />
+          </svg>
+        </div>
+        <ul>
+          <li>
+            <a
+              href="#welcome"
+              class="label-active nav-welcome-label nav-link label-gray"
+            >
+              Üdvözöllek
+            </a>
+          </li>
+          <li><a href="#about" class="label-gray nav-link">Rólam</a></li>
+          <li>
+            <a href="#projects" class="label-gray nav-link">Projektjeim</a>
+          </li>
+          <li>
+            <a href="#skills" class="label-gray nav-link">Technológiák</a>
+          </li>
+          <li>
+            <a href="#contact" class="label-gray nav-link">Kapcsolat</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="container">
+      <section
+        id="welcome"
+        class="stretch justify-content-center v-animation unvisible h-100vh"
+      >
+        <div class="d-flex">
+          <div>
+            <h1>Balogh Norbert</h1>
+            <div class="label-gray">
+              Medior front-end fejlesztő | Angular | TypeScript | RxJS
+            </div>
+            <div class="mt-50">
+              <div>
+                Üdvözöllek! Balogh Norbert vagyok, Medior Front-end fejlesztő,
+                akinek szenvedélye a weboldalak készítése.
+              </div>
+
+              <div>
+                Célom, hogy modern és felhasználó barát megoldások
+                alkalmazásával a lehető legjobbat hozzam ki egy weboldalból.
+              </div>
+
+              <div class="mt">
+                Nézz körül a projektjeim között, és ha tetszik, amit látsz vedd
+                fel velem a kapcsolatot!
+              </div>
+
+              <div class="mt-50">
+                <a href="#contact" class="btn-primary">
+                  Lépj kapcsolatba velem
+                </a>
+              </div>
+            </div>
+          </div>
+          <img
+            class="profile-img"
+            src="./assets/images/profileimg.png"
+            alt="Profil image"
+          />
+        </div>
+
+        <div>
+          <hr class="my-50" />
+        </div>
+      </section>
+
+      <section id="about" class="v-animation unvisible h-100vh">
+        <h2>Rólam</h2>
+
+        <div class="info-grid mt">
+          <div class="info-card label-secondary">
+            Egy fiatal, motivált, lelkes srác vagyok, aki nagyon szeret modern
+            webesalkalmazásokat készíteni, és folyamatosan új technológiákkal
+            bővítem tudásom.
+          </div>
+
+          <div class="info-card label-secondary">
+            Gyorsan, precízen és hatékonyan dolgozom, és mindig készen állok az
+            új kíhívásokra. Bármit nyugodtan rám lehet bízni, megbízható vagyok
+            és jó probléma megoldó képességekkel rendelkezem.
+          </div>
+          <div class="info-card label-secondary">
+            Hatékonyan dolgozom csapatban, de önállóan is jól teljesítek, mindig
+            a legjobb megoldásokra törekedve.
+          </div>
+          <div class="info-card label-secondary">
+            Az elmúlt évek során számos projektben vettem részt, amiket főként
+            önállóan egyedül vezettem le, terveztem meg.
+          </div>
+        </div>
+
+        <div class="mt-10 info-card">
+          <div class="fw-bold">Néhány szó még rólam:</div>
+          <ul class="hobbies-list">
+            <li>Imádok zenét hallgatni,</li>
+            <li>Szeretem az állatokat - van három kutyám,</li>
+            <li>
+              A szabadidőm nagy részében folyamatosan fejlesztem magam, saját
+              webes alkalmazásokat fejlesztek vagy épp jásztom.
+            </li>
+            <li>Éjjeli bagoly vagyok, így nem vagyok jó korai kelésben.</li>
+          </ul>
+        </div>
+
+        <div>
+          <hr class="my-50" />
+        </div>
+      </section>
+
+      <section id="projects" class="v-animation unvisible">
+        <h2>Projektjeim</h2>
+
+        <div class="mt v-animation unvisible">
+          <a
+            class="info-card"
+            href="https://scattersgroup.com/"
+            target="_blank"
+          >
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="fw-bold label-title">Scattersgroup</div>
+              <span class="label-active"> scattersgroup.com </span>
+            </div>
+          </a>
+        </div>
+
+        <div class="mt-50 project-container v-animation unvisible">
+          <div class="project-galery-bg">
+            <div class="project-images" id="worksyncGallery">
+              <img
+                class="worksync-img"
+                data-index="0"
+                src="./assets/images/worksync/calendar1.png"
+                alt="Calendar page"
+              />
+              <img
+                class="worksync-img"
+                data-index="1"
+                src="./assets/images/worksync/calendar2.png"
+                alt="Calendar page"
+              />
+              <img
+                class="worksync-img"
+                data-index="2"
+                src="./assets/images/worksync/calendar4.png"
+                alt="Calendar page"
+              />
+              <img
+                class="worksync-img"
+                data-index="3"
+                src="./assets/images/worksync/calendar3.png"
+                alt="Calendar page"
+              />
+              <img
+                class="worksync-img"
+                data-index="4"
+                src="./assets/images/worksync/publications.png"
+                alt="Publications page"
+              />
+              <img
+                class="worksync-img"
+                data-index="5"
+                src="./assets/images/worksync/publication2.png"
+                alt="Publications page"
+              />
+              <img
+                class="worksync-img"
+                data-index="6"
+                src="./assets/images/worksync/profiledetails.png"
+                alt="Profle details page"
+              />
+              <img
+                class="worksync-img"
+                data-index="7"
+                src="./assets/images/worksync/chats1.png"
+                alt="Chats page"
+              />
+              <img
+                class="worksync-img"
+                data-index="8"
+                src="./assets/images/worksync/chats2.png"
+                alt="Chats page"
+              />
+              <img
+                class="worksync-img"
+                data-index="9"
+                src="./assets/images/worksync/holidays.png"
+                alt="Holidys list page"
+              />
+              <img
+                class="worksync-img"
+                data-index="10"
+                src="./assets/images/worksync/noti1.png"
+                alt="Notifications list page"
+              />
+            </div>
+          </div>
+          <div class="project-description">
+            <div>
+              <h3>WorkSync - Légy szinkronban a munkáddal és kollégáiddal!</h3>
+
+              <div class="project-technologies mt">
+                <div class="mini-blue-card">Angular (18)</div>
+                <div class="mini-blue-card">TypeScript</div>
+                <div class="mini-blue-card">HTML5</div>
+                <div class="mini-blue-card">SCSS</div>
+                <div class="mini-blue-card">Firebase</div>
+                <div class="mini-blue-card">Google</div>
+              </div>
+
+              <div class="mt">
+                <span class="fw-bold">Github:</span>
+                <a
+                  class="label-active"
+                  href="https://github.com/norbert15/WorkSync"
+                  target="_blank"
+                >
+                  github.com/norbert15/WorkSync
+                </a>
+              </div>
+
+              <div class="mt">
+                <span class="fw-bold">Készültség:</span>
+                <span class="label-secondary">70% - Folyamatban</span>
+              </div>
+
+              <div class="label-secondary mt">
+                Ez a webalkalmazás a csapaton belüli információáramlás és
+                együttműködés egyszerűsítésére készült. Segítségével a kollégák
+                gyorsan és átláthatóan kommunikálhatnak egymással, megoszthatják
+                a szükséges információkat, és szinkronizálhatják a
+                munkafolyamatokat.
+              </div>
+
+              <div class="label-secondary mt">
+                Az alkalmazás folyamatos fejlesztés alatt áll, ezért
+                előfordulhat, hogy egyes funkciók még nem teljesen kiforrottak
+                vagy átmenetileg nem működnek megfelelően. A visszajelzéseket
+                szívesen fogadom a további fejlesztésekhez.
+              </div>
+
+              <div class="label-secondary mt">
+                <span class="fw-bold">Főbb funkciók:</span>
+
+                <ul class="hobbies-list">
+                  <li>Naptár szinkron (Google naptár és Google feladat)</li>
+                  <li>Publikákálás</li>
+                  <li>Szabadságkérelmek</li>
+                  <li>Csevegés kollégákkal</li>
+                  <li>Értesítések</li>
+                </ul>
+              </div>
+
+              <div class="text-end mt-50 mb">
+                <a
+                  href="https://github.com/norbert15"
+                  target="_blank"
+                  class="btn-primary"
+                >
+                  Github megtekintése
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-100 project-container v-animation unvisible">
+          <div class="project-description">
+            <div class="stretch">
+              <div class="flex-grow-1">
+                <h3>Amoba játék - Vegyél részt barátaiddal egy jó játékban!</h3>
+
+                <div class="mt">
+                  <span class="fw-bold">Github:</span>
+                  <a
+                    class="label-active"
+                    href="https://github.com/norbert15/AmobaGame"
+                    target="_blank"
+                  >
+                    github.com/norbert15/AmobaGame
+                  </a>
+                </div>
+
+                <div class="mt">
+                  <span class="fw-bold">Készültség:</span>
+                  <span class="label-active">100%</span>
+                </div>
+
+                <div class="project-technologies mt">
+                  <div class="mini-blue-card">Angular (15)</div>
+                  <div class="mini-blue-card">TypeScript</div>
+                  <div class="mini-blue-card">HTML5</div>
+                  <div class="mini-blue-card">SCSS</div>
+                  <div class="mini-blue-card">Bootstrap</div>
+                </div>
+
+                <div class="label-secondary mt">
+                  Ez a webalkalmazás egy Amőba játékot valósít meg Angular
+                  keretrendszer segítségével. A játék során a felhasználók
+                  egymás ellen játszhatnak az Amőba játék hagyományos szabályai
+                  szerint egy böngészőablakon keresztül.
+                </div>
+              </div>
+
+              <div class="text-end mt-50 mb">
+                <a
+                  href="https://github.com/norbert15"
+                  target="_blank"
+                  class="btn-primary"
+                >
+                  Github megtekintése
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="project-galery-bg">
+            <div class="project-images" id="amobaGameGallery">
+              <img
+                class="amoba-img"
+                data-index="0"
+                src="./assets/images/amoba/login2.png"
+                alt="Login page"
+              />
+              <img
+                class="amoba-img"
+                data-index="1"
+                src="./assets/images/amoba/settings1.png"
+                alt="Settings page"
+              />
+              <img
+                class="amoba-img"
+                data-index="2"
+                src="./assets/images/amoba/settings2.png"
+                alt="Settings page"
+              />
+              <img
+                class="amoba-img"
+                data-index="3"
+                src="./assets/images/amoba/settings3.png"
+                alt="Settings page"
+              />
+              <img
+                class="amoba-img"
+                data-index="4"
+                src="./assets/images/amoba/game1.png"
+                alt="Game page"
+              />
+              <img
+                class="amoba-img"
+                data-index="5"
+                src="./assets/images/amoba/game2.png"
+                alt="Game page"
+              />
+              <img
+                class="amoba-img"
+                data-index="6"
+                src="./assets/images/amoba/game3.png"
+                alt="Game page"
+              />
+              <img
+                class="amoba-img"
+                data-index="7"
+                src="./assets/images/amoba/gam4.png"
+                alt="Game page"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-100 project-container v-animation unvisible">
+          <div class="project-galery-bg">
+            <div class="project-images" id="costTrackerGallery">
+              <img
+                class="costtracker-img"
+                data-index="0"
+                src="./assets/images/costtracker/login.png"
+                alt="Login page"
+              />
+              <img
+                class="costtracker-img"
+                data-index="1"
+                src="./assets/images/costtracker/registration.png"
+                alt="Registration page"
+              />
+              <img
+                class="costtracker-img"
+                data-index="2"
+                src="./assets/images/costtracker/cost1.png"
+                alt="Cost page"
+              />
+              <img
+                class="costtracker-img"
+                data-index="3"
+                src="./assets/images/costtracker/cost2.png"
+                alt="Cost page"
+              />
+              <img
+                class="costtracker-img"
+                data-index="4"
+                src="./assets/images/costtracker/cost3.png"
+                alt="Cost page"
+              />
+              <img
+                class="costtracker-img"
+                data-index="5"
+                src="./assets/images/costtracker/cost4.png"
+                alt="Cost page"
+              />
+              <img
+                class="costtracker-img"
+                data-index="6"
+                src="./assets/images/costtracker/cost5.png"
+                alt="Cost page"
+              />
+              <img
+                class="costtracker-img"
+                data-index="7"
+                src="./assets/images/costtracker/cost6.png"
+                alt="Cost page"
+              />
+              <img
+                class="costtracker-img"
+                data-index="8"
+                src="./assets/images/costtracker/cost7.png"
+                alt="Cost page"
+              />
+              <img
+                class="costtracker-img"
+                data-index="9"
+                src="./assets/images/costtracker/incomes1.png"
+                alt="Incomes page"
+              />
+              <img
+                class="costtracker-img"
+                data-index="10"
+                src="./assets/images/costtracker/incomes2.png"
+                alt="Incomes page"
+              />
+              <img
+                class="costtracker-img"
+                data-index="11"
+                src="./assets/images/costtracker/dashboard1.png"
+                alt="Cost page"
+              />
+              <img
+                class="costtracker-img"
+                data-index="12"
+                src="./assets/images/costtracker/dashboard2.png"
+                alt="Cost page"
+              />
+              <img
+                class="costtracker-img"
+                data-index="13"
+                src="./assets/images/costtracker/profile.png"
+                alt="Cost page"
+              />
+            </div>
+          </div>
+          <div class="project-description">
+            <div class="stretch">
+              <div class="flex-grow-1">
+                <h3>
+                  Költségkövető - Tarsd szemmel a kiadásaid és bevételeid!
+                </h3>
+
+                <div class="project-technologies mt">
+                  <div class="mini-blue-card">Angular (12)</div>
+                  <div class="mini-blue-card">TypeScript</div>
+                  <div class="mini-blue-card">HTML5</div>
+                  <div class="mini-blue-card">SCSS</div>
+                  <div class="mini-blue-card">Bootstrap</div>
+                </div>
+
+                <div class="mt">
+                  <span class="fw-bold">Github:</span>
+                  <a
+                    class="label-active"
+                    href="https://github.com/norbert15/CostTarcker2Frontend"
+                    target="_blank"
+                  >
+                    github.com/norbert15/CostTarcker2Frontend
+                  </a>
+                </div>
+
+                <div class="mt">
+                  <span class="fw-bold">Készültség:</span>
+                  <span class="label-active">100%</span>
+                </div>
+
+                <div class="label-secondary mt">
+                  A program egy költségkövető weboldalt reprezentál, mely a
+                  felhasználó nyomon követheti a pénzmozgásait (kiadások és
+                  bevételek) havi és éves bontásban. A kiadások és bevételek
+                  kategóriákra bontható, mely megkönyíti a pénzmozgások nyomon
+                  követését, valamint teljesen személyre szabható is. A program
+                  használatához szükséges egy felhasználói fiók. Amit az oldalon
+                  történő regisztráció biztosít.
+                </div>
+
+                <div class="label-secondary mt">
+                  <span class="fw-bold">Főbb funkciók:</span>
+
+                  <ul class="hobbies-list">
+                    <li>Kiadások és bevételek rögzítése</li>
+                    <li>Új egyedi kategóriák felvétele</li>
+                    <li>Időszakok váltása</li>
+                    <li>Éves, havi kimutatások</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="text-end mt-50 mb">
+                <a
+                  href="https://github.com/norbert15"
+                  target="_blank"
+                  class="btn-primary"
+                >
+                  Github megtekintése
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-100 project-container v-animation unvisible">
+          <div class="project-description">
+            <div class="stretch">
+              <div class="flex-grow-1">
+                <h3>
+                  Termékmenedzsment - Ahol a termékeidet szemmel tarthatod és
+                  kezelheted
+                </h3>
+
+                <div class="project-technologies mt">
+                  <div class="mini-blue-card">Angular (12)</div>
+                  <div class="mini-blue-card">TypeScript</div>
+                  <div class="mini-blue-card">HTML5</div>
+                  <div class="mini-blue-card">SCSS</div>
+                  <div class="mini-blue-card">Bootstrap</div>
+                </div>
+
+                <div class="mt">
+                  <span class="fw-bold">Github:</span>
+                  <a
+                    class="label-active"
+                    href="https://github.com/norbert15/ProductStorageFrontend"
+                    target="_blank"
+                  >
+                    github.com/norbert15/ProductStorageFrontend
+                  </a>
+                </div>
+
+                <div class="mt">
+                  <span class="fw-bold">Készültség:</span>
+                  <span class="label-active">100%</span>
+                </div>
+
+                <div class="label-secondary mt">
+                  A webalkalmazás célja a termékek kezelése, rögzítése és
+                  szemmel tartása.
+                </div>
+
+                <div class="label-secondary mt">
+                  <span class="fw-bold">Főbb funkciók:</span>
+
+                  <ul class="hobbies-list">
+                    <li>Termékek kezelése</li>
+                    <li>Partnerek felvétele</li>
+                    <li>Termék kategóriák kezelése</li>
+                    <li>Naplózás</li>
+                    <li>Felhasználók és jogsultság kezelése</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="text-end mt-50 mb">
+                <a
+                  href="https://github.com/norbert15"
+                  target="_blank"
+                  class="btn-primary"
+                >
+                  Github megtekintése
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="project-galery-bg">
+            <div class="project-images" id="productStorageGallery">
+              <img
+                class="product-img"
+                data-index="0"
+                src="./assets/images/productStorage/login.png"
+                alt="Login page"
+              />
+              <img
+                class="product-img"
+                data-index="1"
+                src="./assets/images/productStorage/products.png"
+                alt="Products page"
+              />
+              <img
+                class="product-img"
+                data-index="2"
+                src="./assets/images/productStorage/partners.png"
+                alt="Partners page"
+              />
+
+              <img
+                class="product-img"
+                data-index="3"
+                src="./assets/images/productStorage/category.png"
+                alt="Categories page"
+              />
+              <img
+                class="product-img"
+                data-index="4"
+                src="./assets/images/productStorage/permissions1.png"
+                alt="Users page"
+              />
+              <img
+                class="product-img"
+                data-index="5"
+                src="./assets/images/productStorage/permission2.png"
+                alt="Users page"
+              />
+              <img
+                class="product-img"
+                data-index="6"
+                src="./assets/images/productStorage/log1.png"
+                alt="Logs page"
+              />
+              <img
+                class="product-img"
+                data-index="7"
+                src="./assets/images/productStorage/log2.png"
+                alt="Logs page"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <hr class="my-50" />
+        </div>
+      </section>
+
+      <section
+        id="skills"
+        class="v-animation unvisible stretch justify-content-center h-100vh"
+      >
+        <h2>Technológiák</h2>
+
+        <div class="info-grid mt">
+          <div class="info-card">
+            <h3>Front-end</h3>
+            <ul class="hobbies-list">
+              <li>Angular (16-18)</li>
+              <li>TypeScript, JavaScript</li>
+              <li>CSS3, SCSS</li>
+              <li>HTML5</li>
+              <li>Bootstrap</li>
+              <li>Angular material</li>
+              <li>Tailwind CSS</li>
+            </ul>
+          </div>
+          <div class="info-card">
+            <h3>Back-end</h3>
+            <ul class="hobbies-list">
+              <li>PHP, Flight, Codeignier, Smarty</li>
+              <li>MySQL, phpMyAdmin, Firebase</li>
+              <li>Python, Fast API</li>
+              <li>Java, Spring boot</li>
+              <li>C#</li>
+            </ul>
+          </div>
+          <div class="info-card">
+            <h3>Egyéb</h3>
+            <ul class="hobbies-list">
+              <li>Git, Gitlab, Github</li>
+              <li>Figma</li>
+              <li>Trello</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <hr class="my-50" />
+        </div>
+      </section>
+
+      <section
+        id="contact"
+        class="v-animation unvisible h-100vh stretch justify-content-center"
+      >
+        <h2>Kapcsolat</h2>
+
+        <div class="label-secondary">
+          Ha felkeltettem az érdeklődésed az alábbi linkeken elérsz.
+        </div>
+
+        <div class="info-card mt">
+          <div
+            class="d-flex justify-content-between align-items-center gap-5 flex-wrap"
+          >
+            <h3>Linkedin</h3>
+            <a
+              class="label-active"
+              href="https://www.linkedin.com/in/norbert-balogh-547ab720b/"
+              target="_blank"
+            >
+              linkedin.com/in/norbert-balogh
+            </a>
+          </div>
+        </div>
+
+        <div class="info-card mt">
+          <div
+            class="d-flex justify-content-between align-items-center gap-5 flex-wrap"
+          >
+            <h3>E-mail cím</h3>
+            <a
+              class="label-active"
+              href="mailto:balogh.norbert1599@gmail.com"
+              target="_blank"
+            >
+              balogh.norbert1599@gmail.com
+            </a>
+          </div>
+        </div>
+
+        <div class="info-card mt">
+          <div class="d-flex justify-content-between align-items-center">
+            <h3>Github</h3>
+            <a
+              class="label-active"
+              href="https://github.com/norbert15"
+              target="_blank"
+            >
+              github.com/norbert15
+            </a>
+          </div>
+        </div>
+
+        <div class="info-card mt">
+          <div class="d-flex justify-content-between align-items-center">
+            <h3>Önéletrajz</h3>
+            <a
+              class="label-active text-underline"
+              download
+              href="./assets/Oneletrajz_Balogh_Norbert.pdf"
+              target="_blank"
+            >
+              Letöltés
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <span class="left-arrow">&lt;</span>
+        <span class="right-arrow">&gt;</span>
+        <img id="modelGaleryImg" src="" alt="" />
+      </div>
+    </div>
+
+    <script src="assets/main.js"></script>
+  </body>
 </html>
