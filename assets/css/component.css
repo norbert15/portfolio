@@ -1,0 +1,199 @@
+.container {
+  /* padding: 32px; */
+  padding-top: 32px;
+  margin: auto;
+  width: 90%;
+}
+
+.btn-primary {
+  padding: 15px;
+  background: linear-gradient(to left, #3d66bf 50%, #2b4a91 50%);
+  background-size: 200% 100%;
+  background-position: right;
+  transition: background-position 0.4s ease-in-out;
+  border: unset;
+  color: white;
+  font-weight: 800;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-position: left;
+}
+
+.mini-blue-card {
+  padding: 10px;
+  background-color: #3d66bf;
+  color: white;
+  font-weight: 800;
+  border-radius: 50px;
+  font-size: 12px;
+}
+
+.hobbies-list {
+  list-style-type: none;
+  padding-top: 10px;
+  margin-block: 10px;
+}
+
+.hobbies-list li {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.hobbies-list li::before {
+  content: "•";
+  color: #3d66bf; /* Kék pontok */
+  padding-right: 10px;
+  padding-top: 5px;
+}
+
+.info-card {
+  display: block;
+  box-shadow: 0 0 4px #0000001a;
+  border: 1px solid #0000001a;
+  padding: 12px;
+  border-radius: 12px;
+}
+
+.info-grid {
+  display: grid;
+  gap: 10px;
+}
+
+.modal {
+  z-index: 1001;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+}
+
+.modal-content {
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.modal-content img {
+  width: 100%;
+  height: 100%;
+}
+
+.left-arrow,
+.right-arrow {
+  cursor: pointer;
+  position: absolute;
+  font-size: 20px;
+  top: 50%;
+  padding-inline: 10px;
+  background: #ccc;
+  opacity: 0.5;
+  border-radius: 50px;
+}
+
+.right-arrow {
+  right: 10px;
+}
+
+.left-arrow {
+  left: 10px;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+}
+
+.project-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 0 4px #0000001a;
+  border: 1px solid #0000001a;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.project-galery-bg {
+  padding: 12px;
+  background-color: rgba(63, 130, 230, 0.3);
+  /* background-color: rgb(13 47 98 / 90%); */
+  order: 2;
+}
+
+.project-images {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.project-images img {
+  cursor: pointer;
+  object-fit: cover;
+  width: 150px;
+  height: 80px;
+  border-radius: 12px;
+  box-shadow: 4px 4px 4px #0000001a;
+}
+
+.project-description {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  padding: 12px;
+  order: 1;
+}
+
+.project-technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.profile-img {
+  width: 100%;
+  max-width: 350px;
+  max-height: 350px;
+  margin: auto;
+  margin-top: 50px;
+}
+
+/* Webkit-alapú böngészők (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3d66bf;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3d66bf;
+}
+
+/* Firefox támogatás */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #3d66bf #f1f1f1;
+}
