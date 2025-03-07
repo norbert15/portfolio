@@ -162,9 +162,7 @@ document.querySelectorAll("nav a").forEach((link) => {
 
     if (window.innerWidth < 900) {
       hamburgerMenu.click();
-      /*  navbarUl.style.display = "none";
-      hamburgerMenu.classList.remove('nav-close');
-      document.body.style.overflow = "unset"; */
+    
     }
   });
 });

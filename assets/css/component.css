@@ -172,6 +172,10 @@
   margin-top: 50px;
 }
 
+.contact-btn {
+  text-align: right;
+}
+
 /* Webkit-alapú böngészők (Chrome, Edge, Safari) */
 ::-webkit-scrollbar {
   width: 8px;
