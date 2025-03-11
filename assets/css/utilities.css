@@ -42,6 +42,14 @@
   padding-top: 50px;
 }
 
+.px-12 {
+  padding-inline: 12px;
+}
+
+.pt-12 {
+  padding-top: 12px;
+}
+
 .gap-5 {
   gap: 5px;
 }
@@ -90,6 +98,10 @@
   display: flex;
   flex-direction: column;
   flex: 1;
+}
+
+.overflow-hidden {
+  overflow: hidden;
 }
 
 .d-flex {
