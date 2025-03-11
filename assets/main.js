@@ -1,60 +1,45 @@
+import { modal, modalImg, closeBtn, nextBtn, prevBtn, activeGallery } from './variables.js';
+import { GalleryEventHelper } from "./gallery.js";
+
+const navbarUl = document.querySelector("nav ul");
+const hamburgerMenu = document.getElementById("hamburgerMenu");
+const sections = document.querySelectorAll("section");
+const unVisibleElements = document.querySelectorAll(".unvisible");
+
+const galleries = [
+  new GalleryEventHelper("scattersGallery", ".scatters-img"),
+  new GalleryEventHelper("worksyncGallery", ".worksync-img"),
+  new GalleryEventHelper("amobaGameGallery", ".amoba-img"),
+  new GalleryEventHelper("costTrackerGallery", ".costtracker-img"),
+  new GalleryEventHelper("productStorageGallery", ".product-img"),
+];
+
+let modalImgStartX = 0;
+
 document.addEventListener("DOMContentLoaded", () => {
-  const modal = document.querySelector(".modal");
-  const modalImg = document.getElementById("modelGaleryImg");
-  const closeBtn = document.querySelector(".close");
-  const nextBtn = document.querySelector(".right-arrow");
-  const prevBtn = document.querySelector(".left-arrow");
+  // Galéria események kezelésének elindítása
+  galleries.forEach((g) => {
+    g.addEventHandlers();
+  })
 
-  let currentIndex = -1;
-
-  const imgsGroup = {
-    workSync: document.querySelectorAll(".worksync-img"),
-    amoba: document.querySelectorAll(".amoba-img"),
-    costTracker: document.querySelectorAll(".costtracker-img"),
-    products: document.querySelectorAll(".product-img"),
-  };
-
-  let activeItems = [];
-
-  document
-    .querySelector("#worksyncGallery")
-    .addEventListener("click", (event) => {
-      activeItems = imgsGroup.workSync;
-      handleImgClick(event);
-    });
-
-  document
-    .querySelector("#amobaGameGallery")
-    .addEventListener("click", (event) => {
-      activeItems = imgsGroup.amoba;
-      handleImgClick(event);
-    });
-
-  document
-    .querySelector("#costTrackerGallery")
-    .addEventListener("click", (event) => {
-      activeItems = imgsGroup.costTracker;
-      handleImgClick(event);
-    });
-
-  document
-    .querySelector("#productStorageGallery")
-    .addEventListener("click", (event) => {
-      activeItems = imgsGroup.products;
-      handleImgClick(event);
-    });
-
+  // Leütött billentyűzet eseményeinek kezelése
   document.addEventListener("keydown", (event) => {
+    // Ha a escape karaktert nyomtak le és a kép megjelenítő dialog atkív
     if (event.key === "Escape" && modal.style.display === "flex") {
       closeDialog();
     }
 
-    if (event.key === "ArrowLeft") {
-      loadPrev();
-    }
+    const gallery = getActiveGallery();
 
-    if (event.key === "ArrowRight") {
-      loadNext();
+    // Ha kerül ki választásra, megnyitásra egy kép valamelyik galériából
+    if (gallery) {
+      if (event.key === "ArrowLeft" && gallery.imgIndex != -1) {
+        gallery.loadPrev();
+      }
+
+      if (event.key === "ArrowRight" && gallery.imgIndex != -1) {
+        gallery.loadNext();
+      }
     }
   });
 
@@ -63,88 +48,55 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   nextBtn.addEventListener("click", () => {
-    loadNext();
+    const gallery = getActiveGallery();
+
+    if (gallery) {
+      gallery.loadNext();
+    }
   });
 
   prevBtn.addEventListener("click", () => {
-    loadPrev();
+    const gallery = getActiveGallery();
+
+    if (gallery) {
+      gallery.loadPrev();
+    }
   });
 
-  function handleImgClick(event) {
-    const { target } = event;
-    setImage(target.src, target.alt, target.getAttribute("data-index"));
+  modal.addEventListener("touchstart", (event) => {
+    const gallery = getActiveGallery();
+    if (gallery) {
 
-    if (currentIndex === 0) {
-      prevBtn.style.display = "none";
+      modalImgStartX = event.touches[0].clientX;
     }
+  }, { passive: true });
 
-    if (currentIndex === activeItems.length - 1) {
-      nextBtn.style.display = "none";
-    }
-  }
+  modal.addEventListener("touchend", (event) => {
+    const gallery = getActiveGallery();
 
-  function loadNext() {
-    if (currentIndex < activeItems.length - 1) {
-      const target = activeItems[currentIndex + 1];
-      setImage(target.src, target.alt, currentIndex + 1);
+    if (gallery) {
+      let endX = event.changedTouches[0].clientX;
+      let diff = modalImgStartX - endX;
 
-      if (currentIndex === activeItems.length - 1) {
-        nextBtn.style.display = "none";
-      }
-
-      if (currentIndex > 0) {
-        prevBtn.style.display = "block";
+      if (diff > 50) {
+        gallery.loadNext();
+      } else if (diff < -50) {
+        gallery.loadPrev();
       }
     }
-  }
 
-  function loadPrev() {
-    if (currentIndex > 0) {
-      const target = activeItems[currentIndex - 1];
-      setImage(target.src, target.alt, currentIndex - 1);
-
-      if (currentIndex === 0) {
-        prevBtn.style.display = "none";
-      }
-
-      if (currentIndex < activeItems.length - 1) {
-        nextBtn.style.display = "block";
-      }
-    }
-  }
-
-  function closeDialog() {
-    document.body.style.overflow = "unset";
-    modal.style.display = "none";
-    prevBtn.style.display = "block";
-    nextBtn.style.display = "block";
-    modalImg.setAttribute("src", "");
-    modalImg.setAttribute("alt", "");
-    currentIndex = -1;
-  }
-
-  function setImage(src, alt, index) {
-    if (src && modal && modalImg) {
-      document.body.style.overflow = "hidden";
-      modal.style.display = "flex";
-      modalImg.setAttribute("src", src);
-      modalImg.setAttribute("alt", alt);
-      currentIndex = +index;
-    }
-  }
+  });
 
   checkVisibility();
   scrollTracker();
+  resizeTracker();
 });
 
-const navbarUl = document.querySelector("nav ul");
-const hamburgerMenu = document.getElementById("hamburgerMenu");
+const navbar = document.getElementById("navbar")
 
 hamburgerMenu.addEventListener("click", () => {
-  const opened = hamburgerMenu.classList.contains("nav-close");
-  navbarUl.style.top = opened ? "-1000px" : "70px";
-  document.body.style.overflow = opened ? "unset" : "hidden";
-  hamburgerMenu.classList.toggle("nav-close");
+  document.body.classList.toggle('overflow-hidden')
+  navbar.classList.toggle('opened');
 });
 
 document.querySelectorAll("nav a").forEach((link) => {
@@ -162,13 +114,35 @@ document.querySelectorAll("nav a").forEach((link) => {
 
     if (window.innerWidth < 900) {
       hamburgerMenu.click();
-    
     }
   });
 });
 
-const sections = document.querySelectorAll("section");
-const unVisibleElements = document.querySelectorAll(".unvisible");
+window.addEventListener("scroll", () => {
+  scrollTracker();
+  checkVisibility();
+});
+
+window.addEventListener("resize", resizeTracker);
+
+
+function closeDialog() {
+  document.body.classList.remove('overflow-hidden');
+  modal.style.display = "none";
+  prevBtn.style.display = "block";
+  nextBtn.style.display = "block";
+  modalImg.setAttribute("src", "");
+  modalImg.setAttribute("alt", "");
+  activeGallery.id = null;
+}
+
+function getActiveGallery() {
+  if (activeGallery.id) {
+    return galleries.find((g) => g.id === activeGallery.id);
+  }
+
+  return null;
+}
 
 function scrollTracker() {
   const currentYScroll = window.scrollY;
@@ -194,29 +168,15 @@ function checkVisibility() {
   unVisibleElements.forEach((section) => {
     const rect = section.getBoundingClientRect();
 
-    if (rect.top <= window.innerHeight * 0.7 && rect.bottom >= 0) {
+    if (rect.top <= window.innerHeight * 0.9 && rect.bottom >= 0) {
       section.classList.add("visible");
     }
   });
 }
 
 function resizeTracker() {
-  navbarUl.style.top = "-1000px";
-  hamburgerMenu.classList.remove("nav-close");
-
-  if (window.innerWidth < 900) {
-    navbarUl.classList.add("mobile-navbar");
-  } else {
-    navbarUl.classList.remove("mobile-navbar");
-    document.body.style.overflow = "unset";
+  navbar.classList.remove("opened");
+   if (!modal || !modal.style.display || modal.style.display === "none") {
+    document.body.classList.remove('overflow-hidden')
   }
 }
-
-window.addEventListener("scroll", () => {
-  scrollTracker();
-  checkVisibility();
-});
-
-window.addEventListener("resize", resizeTracker);
-
-resizeTracker();

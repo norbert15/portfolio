@@ -13,7 +13,7 @@
   </head>
   <body>
     <header>
-      <nav>
+      <nav id="navbar">
         <div id="hamburgerMenu">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -144,20 +144,57 @@
       <section id="projects" class="v-animation unvisible">
         <h2>Projektjeim</h2>
 
-        <div class="mt v-animation unvisible">
-          <a
-            class="info-card"
-            href="https://scattersgroup.com/"
-            target="_blank"
-          >
+        <div class="mt-50 v-animation unvisible info-card p-none">
+          <div class="px-12 pt-12">
             <div class="d-flex justify-content-between align-items-center">
               <div class="fw-bold label-title">Scattersgroup</div>
-              <span class="label-active"> scattersgroup.com </span>
+              <a
+                class="label-active"
+                href="https://scattersgroup.com/"
+                target="_blank"
+              >
+                scattersgroup.com
+              </a>
             </div>
-          </a>
+
+            <div class="project-technologies mt">
+              <div class="mini-blue-card">Angular (12)</div>
+              <div class="mini-blue-card">TypeScript</div>
+              <div class="mini-blue-card">HTML5</div>
+              <div class="mini-blue-card">SCSS</div>
+              <div class="mini-blue-card">Bootstrap</div>
+            </div>
+          </div>
+
+          <div class="scatters-img-container mt" id="scattersGallery">
+            <img
+              class="scatters-img"
+              data-index="0"
+              src="./assets/images/scatters/scatters.png"
+              alt="Scatters home"
+            />
+            <img
+              class="scatters-img"
+              data-index="1"
+              src="./assets/images/scatters/scatters2.png"
+              alt="Scatters home section"
+            />
+            <img
+              class="scatters-img"
+              data-index="2"
+              src="./assets/images/scatters/scatters3.png"
+              alt="Scatters milestones"
+            />
+            <img
+              class="scatters-img"
+              data-index="3"
+              src="./assets/images/scatters/scatters4.png"
+              alt="Scatters news"
+            />
+          </div>
         </div>
 
-        <div class="mt-50 project-container v-animation unvisible">
+        <div class="mt-100 project-container v-animation unvisible">
           <div class="project-galery-bg">
             <div class="project-images" id="worksyncGallery">
               <img
@@ -301,7 +338,7 @@
           <div class="project-description">
             <div class="stretch">
               <div class="flex-grow-1">
-                <h3>Amoba játék - Vegyél részt barátaiddal egy jó játékban!</h3>
+                <h3>Amőba játék - Vegyél részt barátaiddal egy jó játékban!</h3>
 
                 <div class="mt">
                   <span class="fw-bold">Github:</span>
@@ -793,12 +830,41 @@
     <div class="modal">
       <div class="modal-content">
         <span class="close">&times;</span>
-        <span class="left-arrow">&lt;</span>
-        <span class="right-arrow">&gt;</span>
+        <span class="left-arrow">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-chevron-left"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"
+            />
+          </svg>
+        </span>
+        <span class="right-arrow">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-chevron-right"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"
+            />
+          </svg>
+        </span>
         <img id="modelGaleryImg" src="" alt="" />
       </div>
     </div>
 
-    <script src="assets/main.js"></script>
+    <script type="module" src="assets/variables.js"></script>
+    <script type="module" src="assets/main.js"></script>
   </body>
 </html>
