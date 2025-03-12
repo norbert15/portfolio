@@ -1,7 +1,7 @@
 import { modal, modalImg, closeBtn, nextBtn, prevBtn, activeGallery } from './variables.js';
 import { GalleryEventHelper } from "./gallery.js";
 
-const navbarUl = document.querySelector("nav ul");
+const navbar = document.getElementById("navbar")
 const hamburgerMenu = document.getElementById("hamburgerMenu");
 const sections = document.querySelectorAll("section");
 const unVisibleElements = document.querySelectorAll(".unvisible");
@@ -84,19 +84,16 @@ document.addEventListener("DOMContentLoaded", () => {
         gallery.loadPrev();
       }
     }
+  });
 
+  hamburgerMenu.addEventListener("click", () => {
+    document.body.classList.toggle('overflow-hidden')
+    navbar.classList.toggle('opened');
   });
 
   checkVisibility();
   scrollTracker();
   resizeTracker();
-});
-
-const navbar = document.getElementById("navbar")
-
-hamburgerMenu.addEventListener("click", () => {
-  document.body.classList.toggle('overflow-hidden')
-  navbar.classList.toggle('opened');
 });
 
 document.querySelectorAll("nav a").forEach((link) => {

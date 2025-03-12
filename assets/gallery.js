@@ -36,6 +36,7 @@ export class GalleryEventHelper {
 
       this.isDragging = false;
       this.isMoved = false;
+      this.galeryElement.style.cursor = "grab";
     });
   }
 
@@ -45,6 +46,7 @@ export class GalleryEventHelper {
       e.preventDefault();
       this.isDragging = true;
       this.lastX = e.pageX - this.galeryElement.offsetLeft;
+      this.galeryElement.style.cursor = "grabbing";
     });
 
     this.galeryElement.addEventListener("mousemove", (e) => {
@@ -61,6 +63,7 @@ export class GalleryEventHelper {
     this.galeryElement.addEventListener("mouseleave", () => {
       this.isDragging = false;
       this.isMoved;
+      this.galeryElement.style.cursor = "grab";
     });
   }
 
